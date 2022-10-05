@@ -13,7 +13,7 @@ const activityStates = {
  * @return {Node} generated markup for a card
  */
 const generateCardNode = (data) => {
-  const { name, href, image } = data;
+  const { name, href, image, activity } = data;
   const templateId = "profile-group-results-item-template";
   const resultCardTemplate = document.getElementById(templateId);
   const clone = document.importNode(resultCardTemplate.content, true);
@@ -22,6 +22,29 @@ const generateCardNode = (data) => {
   const groupImageNode = clone.querySelector(
     "a.profile-group-results-card img"
   );
+  const cardNode = clone.querySelector("a.profile-group-results-card");
+
+  let color = undefined;
+  switch (activity) {
+    case activityStates.active:
+      color = "var(--secondary)"
+    break;
+    case activityStates.moderate:
+      color = "var(--primary)"
+    break;
+    case activityStates.low:
+      color = "var(--warning)"
+    break;
+    case activityStates.inactive:
+      color = "var(--grayscale_2)"
+    break;
+    default:
+      // do nothing
+    break;
+  }
+  if (color !== undefined) {
+    cardNode.style.backgroundColor = color;
+  }
 
   titleNode.innerHTML = `${name}`;
   referenceNode.href = href;
