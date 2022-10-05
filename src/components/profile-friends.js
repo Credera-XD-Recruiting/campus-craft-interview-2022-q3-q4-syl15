@@ -48,6 +48,32 @@ export const generateFriendsListFromTemplate = (resultsData) => {
   if (resultsData.friends && resultsData.friends.length > 0) {
     removeChildNodes(friendsListSection);
 
+    resultsData.friends.sort((a, b) => {
+      const aLast = a.name.split(" ")[1];
+      const bLast = b.name.split(" ")[1];
+
+      // top friends should always get precedence
+      if (a.topFriend && !(b.topFriend)) {
+        return -1;
+      }
+      if (!a.topFriend && b.topFriend) {
+        return 1;
+      }
+      if (a.topFriend && b.topFriend) {
+        return 0;
+      }
+      // else, sort alphabetically
+      if (aLast > bLast) {
+        return 1;
+      } 
+      if (aLast < bLast) {
+        return -1;
+      }
+      // else, they're equal
+      return 0;
+    });
+    console.log(resultsData.friends);
+
     for (let i = 0; i < resultsData.friends.length; i++) {
       const friendsNode = generateListItemNode(resultsData.friends[i]);
       friendsListSection.appendChild(friendsNode);
