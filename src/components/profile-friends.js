@@ -29,6 +29,12 @@ const generateListItemNode = (data) => {
     avatarImg.src = avatarSrc;
     avatarImg.setAttribute("aria-label", `${name}`);
     avatarNode.appendChild(avatarImg);
+  } else {
+    avatarNode.classList.add("profile-list-item-avatar-initials");
+    const firstInitial = name.split(" ")[0][0];
+    const secondInitial = name.split(" ")[1][0];
+    const initials = `${firstInitial}${secondInitial}`;
+    avatarNode.innerHTML = initials;
   }
 
   return clone;
