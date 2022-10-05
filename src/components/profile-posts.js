@@ -15,6 +15,7 @@ const generateCardNode = (data) => {
     companyName,
     post,
   } = data;
+  console.log(data); 
   const templateId = "profile-post-item-template";
   const resultCardTemplate = document.getElementById(templateId);
   const clone = document.importNode(resultCardTemplate.content, true);

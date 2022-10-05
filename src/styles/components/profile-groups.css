@@ -36,7 +36,21 @@
   background-color: var(--grayscale_1);
   text-decoration: none;
   color: var(--midnight_black);
+}
 
+.profile-group-star {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+
+  transform: rotate(0deg);
+  transition: transform 1s;
+}
+
+.profile-group-star:hover {
+  transform: rotate(360deg);
 }
 
 .profile-group-content {

@@ -13,7 +13,7 @@ const activityStates = {
  * @return {Node} generated markup for a card
  */
 const generateCardNode = (data) => {
-  const { name, href, image, activity } = data;
+  const { name, href, image, activity, favorite } = data;
   const templateId = "profile-group-results-item-template";
   const resultCardTemplate = document.getElementById(templateId);
   const clone = document.importNode(resultCardTemplate.content, true);
@@ -44,6 +44,17 @@ const generateCardNode = (data) => {
   }
   if (color !== undefined) {
     cardNode.style.backgroundColor = color;
+  }
+
+  if (favorite) {
+    cardNode.style.boxShadow = `0px 0px 10px 2px ${color}`;
+
+    const star = document.createElement("img");
+    //star.src = "https://www.models-resource.com/resources/big_icons/43/42279.png";
+    star.src = "https://images.vexels.com/media/users/3/283648/isolated/lists/42ae2ba3fdb9dcea5b5884f4378b3c21-pink-rounded-star.png";
+    star.setAttribute("aria-label", `star`);
+    star.classList.add("profile-group-star");
+    cardNode.appendChild(star);
   }
 
   titleNode.innerHTML = `${name}`;
