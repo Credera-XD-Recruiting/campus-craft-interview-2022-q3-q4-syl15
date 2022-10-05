@@ -31,6 +31,10 @@
   display: none;
 }
 
+.profile-list-item .top-friend-flag-visible {
+  display: block;
+}
+
 .profile-list-item .top-friend-flag + .page-paragraph {
   margin-bottom: 8px;
 }

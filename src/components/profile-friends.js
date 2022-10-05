@@ -11,10 +11,14 @@ const generateListItemNode = (data) => {
   const templateId = "friend-list-item-template";
   const resultCardTemplate = document.getElementById(templateId);
   const clone = document.importNode(resultCardTemplate.content, true);
+  const topFriendNode = clone.querySelector("p.top-friend-flag");
   const nameNode = clone.querySelector("p.page-paragraph");
   const titleNode = clone.querySelector("p.page-micro");
   const avatarNode = clone.querySelector(".profile-list-item-avatar");
 
+  if (topFriend) {
+    topFriendNode.classList.add("top-friend-flag-visible");
+  }
   nameNode.innerHTML = `${name}`;
   titleNode.innerHTML = `${jobTitle} @ ${companyName}`;
   avatarNode.src = avatarSrc;
