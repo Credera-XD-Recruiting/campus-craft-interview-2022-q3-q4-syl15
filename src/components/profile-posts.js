@@ -1,5 +1,7 @@
 import { removeChildNodes } from "../utils";
 
+var showMoreEnabled = false;
+
 /**
  * Function which generates a single Card node based on a dataset
  *
@@ -27,6 +29,7 @@ const generateCardNode = (data) => {
   const jobDesc = clone.querySelector(".post-author-info .page-micro");
   const postNode = clone.querySelector(".post-content");
   const avatarNode = clone.querySelector(".post-author-avatar");
+  const contentCard = clone.querySelector(".content-card");
   // date, city, state
   const postInfo = document.createElement("p");
   postInfo.classList.add("post-publication-info");
@@ -38,7 +41,27 @@ const generateCardNode = (data) => {
   const publishDateObject = new Date(publishDate);
   const formattedDate = publishDateObject.toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) 
   postInfo.innerHTML = `${formattedDate} • ${city} , ${state}`;
-  postNode.innerHTML = post;
+
+  const showMore = document.createElement("button");
+  showMore.innerText = "Show more";
+  showMore.classList.add("show-more-button");
+
+  const shortenedPost = post.split(".")[0] + "...";
+  postNode.innerHTML = shortenedPost;
+
+  showMore.onclick = () => { 
+    if (showMoreEnabled) {
+      showMore.innerText = "Show more";
+      postNode.innerHTML = shortenedPost;
+    } else {
+      postNode.innerHTML = post;
+      showMore.innerText = "Show less";
+    }
+    showMoreEnabled = !showMoreEnabled 
+  };
+
+  contentCard.appendChild(showMore);
+
 
   if (authorAvatarSrc) {
     const avatarImg = document.createElement("img");

@@ -53,3 +53,19 @@
   height: 125px;
   margin-bottom: 8px;
 }
+
+.show-more-button {
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  color: var(--midnightBlack);
+  background-color: transparent;
+  text-align: right;
+  font-weight: bold;
+  text-decoration: underline;
+  width: 100%;
+  text-align: right;
+}
+
+.show-more-button:hover {
+  cursor: pointer;
+}
