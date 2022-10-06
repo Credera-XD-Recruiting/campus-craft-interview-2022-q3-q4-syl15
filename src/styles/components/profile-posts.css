@@ -37,6 +37,13 @@
   margin-left: 24px;
 }
 
+.post-publication-info {
+  font-size: 14px;
+  width: 100%; 
+  color: var(--deepSmoke);
+  margin-top: 2px;
+}
+
 .post-author-info > :first-child {
   margin-bottom: 8px;
 }
