@@ -50,7 +50,6 @@ const generateCardNode = (data) => {
     cardNode.style.boxShadow = `0px 0px 10px 2px ${color}`;
 
     const star = document.createElement("img");
-    //star.src = "https://www.models-resource.com/resources/big_icons/43/42279.png";
     star.src = "https://images.vexels.com/media/users/3/283648/isolated/lists/42ae2ba3fdb9dcea5b5884f4378b3c21-pink-rounded-star.png";
     star.setAttribute("aria-label", `star`);
     star.classList.add("profile-group-star");
