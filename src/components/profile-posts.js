@@ -62,7 +62,6 @@ const generateCardNode = (data) => {
 
   contentCard.appendChild(showMore);
 
-
   if (authorAvatarSrc) {
     const avatarImg = document.createElement("img");
     avatarImg.src = authorAvatarSrc;
@@ -71,6 +70,12 @@ const generateCardNode = (data) => {
       `${authorFirstName} ${authorLastName}`
     );
     avatarNode.appendChild(avatarImg);
+  } else {
+    avatarNode.classList.add("post-author-avatar-initials");
+    const firstInitial = authorFirstName[0];
+    const secondInitial = authorLastName[0];
+    const initials = `${firstInitial}${secondInitial}`;
+    avatarNode.innerHTML = initials;
   }
 
   return clone;

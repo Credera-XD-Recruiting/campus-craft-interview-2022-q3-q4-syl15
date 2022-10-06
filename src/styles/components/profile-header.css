@@ -48,3 +48,11 @@
 #profile-header .skeleton-block--half {
   height: 42px;
 }
+
+.profile-avatar-initials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: white;
+}
