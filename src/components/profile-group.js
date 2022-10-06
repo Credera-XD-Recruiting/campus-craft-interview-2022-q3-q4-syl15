@@ -47,7 +47,7 @@ const generateCardNode = (data) => {
   }
 
   if (favorite) {
-    cardNode.style.boxShadow = `0px 0px 10px 2px ${color}`;
+    // cardNode.style.boxShadow = `0px 0px 10px 2px ${color}`;
 
     const star = document.createElement("img");
     star.src = "https://images.vexels.com/media/users/3/283648/isolated/lists/42ae2ba3fdb9dcea5b5884f4378b3c21-pink-rounded-star.png";
